@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChaiGo - Contact Us</title>
+    <link rel="icon" href="./images/logo.svg" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header & Navigation */
+        header {
+            padding: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2rem;
+            color: #4f9d55;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .nav-links a:hover {
+            color: #4f9d55;
+        }
+        
+        .nav-links a.active {
+            color: #4f9d55;
+            border-bottom: 2px solid #4f9d55;
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Page Banner */
+        .page-banner {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            padding: 20px;
+        }
+        
+        .contact-heading {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .contact-text {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4f9d55;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: #4f9d55;
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 60px 0;
+        }
+        
+        .map-container {
+            height: 400px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            background-color: #f9f9f9;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.8rem;
+            color: #4f9d55;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .footer-description {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background-color: #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #4f9d55;
+            color: white;
+        }
+        
+        .footer-heading {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-link {
+            color: #666;
+        }
+        
+        .footer-link:hover {
+            color: #4f9d55;
+        }
+        
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .payment-icons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .payment-icon {
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        
+        .payment-icon:hover {
+            opacity: 1;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .nav-links {
+        /* Instead of display: none */
+        width: 100%;
+        justify-content: space-between;
+        gap: 5px; /* Reduce the gap between items */
+        overflow-x: auto; /* Allow horizontal scrolling if needed */
+        padding: 0 5px;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem; /* Make the text smaller */
+        padding: 5px; /* Reduce padding */
+        white-space: nowrap; /* Prevent text wrapping */
+    }
+        }
+        .logo-container {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    
+    .logo-image {
+        height: 40px;
+        width: auto;
+        margin-right: 10px;
+    }
+    
+    .logo-text {
+        font-family: 'Brush Script MT', cursive;
+        font-size: 2rem;
+        color: #4f9d55;
+        font-weight: bold;
+    }
+    
+    /* Responsive styles for the logo */
+    @media (max-width: 992px) {
+        .logo-image {
+            height: 35px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .logo-image {
+            height: 30px;
+        }
+        
+        .logo-text {
+            font-size: 1.6rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .logo-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo-image {
+            height: 28px;
+            margin-bottom: 2px;
+            margin-right: 0;
+        }
+        
+        .logo-text {
+            font-size: 1.4rem;
+        }
+        
+        .header-content {
+            flex-wrap: wrap;
+        }
+        
+        .nav-links {
+            order: 3;
+            margin-top: 10px;
+            width: 100%;
+            justify-content: space-between;
+            gap: 5px;
+            overflow-x: auto;
+            padding: 5px 0;
+        }
+        
+        .header-icons {
+            margin-left: auto;
+        }
+    }
+    
+    @media (max-width: 350px) {
+        .logo-container {
+            flex-direction: row;
+            align-items: center;
+        }
+        
+        .logo-image {
+            height: 25px;
+            margin-right: 5px;
+            margin-bottom: 0;
+        }
+        
+        .logo-text {
+            font-size: 1.2rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="home.html" class="logo-container">
+                <img src="./images/logo.png" alt="ChaiGo Logo" class="logo-image">
+                <span class="logo-text">ChaiGo</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="cafes.html">Cafés</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <div class="header-icons">
+                <a href="#" aria-label="Search">🔍</a>
+                <a href="#" aria-label="Shopping Cart">🛒</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Have questions, feedback, or partnership inquiries? We'd love to hear from you!</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 class="contact-heading">Contact Information</h3>
+                    <p class="contact-text">Our team is available Monday through Friday, 9am to 5pm (PST). We strive to respond to all inquiries within 24 hours.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <strong>Headquarters</strong>
+                                <p>Karachi Korangi</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <strong>Email</strong>
+                                <p>Chaigo.0@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>03472283229</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div>
+                                <strong>Wholesale Inquiries</strong>
+                                <p>Chaigo.0@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-textarea" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <img src="./images/map.jpg" alt="Map showing ChaiGo headquarters location in Seattle" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="home.html" class="footer-logo">ChaiGo</a>
+                    <p class="footer-description">Blending authentic flavors with modern convenience, redefining how tea is enjoyed—at home and in cafés.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/chai.go2025/?igsh=YWQzdmQxbjh4aWZ5#" target="_blank" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/people/Chaigo/61575660781996/" target="_blank" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@chai.go2025?is_from_webapp=1&sender_device=pc" target="_blank" class="social-link" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Shop</h4>
+                    <div class="footer-links">
+                        <a href="shop.html" class="footer-link">All Teas</a>
+                        <a href="shop.html" class="footer-link">Chai Blends</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="about.html#sustainability" class="footer-link">Sustainability</a>
+                        <a href="cafes.html" class="footer-link">Café Partners</a>
+                        <a href="about.html#wholesale" class="footer-link">Wholesale</a>
+                        <a href="about.html#careers" class="footer-link">Careers</a>
+                        <a href="about.html#contact" class="footer-link">Contact Us</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Help</h4>
+                    <div class="footer-links">
+                        <a href="about.html#faqs" class="footer-link">FAQs</a>
+                        <a href="about.html#shipping" class="footer-link">Shipping & Returns</a>
+                        <a href="#" class="footer-link">Track Order</a>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 ChaiGo. All rights reserved.</p>
+                <div class="payment-icons">
+                    <span class="payment-icon"><i class="fab fa-cc-visa"></i></span>
+                    <span class="payment-icon"><i class="fab fa-cc-mastercard"></i></span>
+                    <span class="payment-icon"><i class="fab fa-cc-paypal"></i></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
